@@ -1,0 +1,71 @@
+.centralDiv{
+    border-width:2px;
+    border-style:solid;
+    border-color:black;
+    width: 75%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.divOne{
+//positon: absolute;
+    border-width:2px;
+    border-style:solid;
+    border-color:black;
+    width: 50%;
+    margin: 20px;
+}
+
+.divOneOne{
+    width: 80%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.divItems{
+//positon: absolute;
+    border-width:2px;
+    border-style:solid;
+    border-color:black;
+    margin: 35px;
+}
+
+.main {
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+//background-color: DodgerBlue;
+}
+
+.alignLabel{
+    padding-left:8em;
+}
+
+.cardItem2{
+    display: inline-block;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.itemsCart{
+//positon: absolute;
+    border-width:2px;
+    border-style:solid;
+    border-color:black;
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
+.addToCartButton{
+    margin-top: 15px;
+}
+
+#confirmAddStore {
+    position: fixed;
+    top: 15%;
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zone</title>
+
+
+
+    <!--Default Header=================================================================================-->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <!-- jQuery library -->
+    <script type="text/javascript" src="common/lib/jquery-2.0.3.min.js"></script>
+
+    <link rel="stylesheet" href="common/lib/bootstrap.min.css">
+    <script type="text/javascript" src="common/lib/bootstrap.js"></script>
+
+    <link rel="shortcut icon" href="#">
+
+    <script src="pages/notifier/notifier.js"></script>
+
+
+</head>
+<body>
+<!--navbar-->
+
+<nav class="navbar  navbar-expand-md navbar-light bg-light " id="navBarHome">
+    <a class="navbar-brand" href="ownerZone.html">SuperDuperMarket</a>
+    <!--   <a href="#" class="btn align-middle btn-primary ml-auto mr-3 order-lg-last" type="button">Upload</a>-->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="ownerZone.html">Zone's details
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="myStores.html">My Stores</a>
+            </li>
+        </ul>
+    </div>
+
+    <!--    <div class="container-fluid-nav text-center">-->
+
+    <a href="addNewStore.html" class="btn align-middle   ml-auto mr-3 order-lg-last"  >Add a new store</a>
+</nav>
+<!--<div class="row container-fluid">
+
+
+</div>-->
+
+<div class="row container-fluid">
+    <div class="main-body body container-fluid ">
+<!--        <div class="row">-->
+        <div class="col-md-1"> <button id="backButton"> Back</button> </div>
+
+            <div class="col-md-11" id="alertArea" style="margin:0 auto; margin-top: 10px; margin-bottom: 10px;">
+
+                <!--<div class="alert alert-info col-md-11" style="margin:0 auto;">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>Info!</strong> Indicates a neutral informative change or action.
+                </div>-->
+
+
+            </div>
+
+            <div class="col-md-10 " style="margin:0 auto;">
+                <h1 class="text-center">Welcome to the zone: <span class="zoneName"></span> !</h1>
+                <br>
+
+                <!--<div class=" justify-content-center">
+                    <h1>Welcome to the zone: <span class="zoneName"></span> !</h1>
+                </div>-->
+
+                <div class="row justify-content-center">
+                    <h3>Items</h3>
+                </div>
+
+                <div class="parent-box owl-carousel items" id="itemsZone">
+                </div>
+
+                <!--        Stores !!!!!!!!!!!-->
+
+                <div class="row justify-content-center">
+                    <h3>Stores</h3>
+                </div>
+
+                <div class="parent-box owl-carousel stores" id="storesZone">
+                </div>
+            </div>
+<!--        </div>-->
+
+    </div>
+</div>
+
+
+
+<script src="common/lib/owl.carousel.js"></script>
+<script src="pages/zone/zone.js"></script>
+
+<!--    <script src="pages/zone/zone.js"></script>-->
+<link href="common/lib/owl.carousel.css" rel="stylesheet">
+<link href="pages/zone/zone.css" rel="stylesheet">
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat</title>
+
+    <!--Default Header=================================================================================-->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <!-- jQuery library -->
+    <script type="text/javascript" src="common/lib/jquery-2.0.3.min.js"></script>
+
+    <link rel="stylesheet" href="common/lib/bootstrap.min.css">
+    <script type="text/javascript" src="common/lib/bootstrap.js"></script>
+
+    <link rel="shortcut icon" href="#">
+
+
+    <script src="pages/chatroom/chatroom.js"></script>
+    <script src="pages/home/home.js"></script>
+    <script src="pages/home/home.js"></script>
+    <link href="pages/chatroom/chatroom.css" rel="stylesheet">
+
+
+</head>
+<body>
+<nav class="navbar  navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand" href="home.html">SuperDuperMarket</a>
+    <!--   <a href="#" class="btn align-middle btn-primary ml-auto mr-3 order-lg-last" type="button">Upload</a>-->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item ">
+                <a class="nav-link" href="home.html">Home
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="account.html">Account</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="chat.html">Chat</a>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+
+<!--Main body-->
+<!--Main body-->
+<div class="row main-body body container-fluid">
+    <br>
+    <div class="col-md-3 users">
+        <div class="row justify-content-center">
+            <h1>Users</h1>
+        </div>
+
+        <br>
+        <div id="listOfUsers">
+
+        </div>
+        <ul id="userslist">
+        </ul>
+    </div>
+
+    <div class="col-md-8 messagesZone">
+        <div class="row justify-content-center">
+            <h1>Messages</h1>
+        </div>
+        <br>
+
+        <div class="content">
+            <div id="chatwindow">
+                <div id="chatarea">
+                    <!--<div class="card shadow p-3 mb-3 bg-white rounded" >
+                        <div class="card-body">
+                            <h5 class="card-title username">Stam</h5>
+                            <br>
+                            <h6 class="card-subtitle text-muted">Message:</h6>
+                            <p>A very long long long long long long message</p>
+                        </div>
+                    </div>-->
+                </div>
+                <form class="form-chat" id="chatform" method="POST" action="sendChat">
+                    <input type="text" id="userstring" name="userstring" size="80" placeholder="Enter your message"/>
+                    <input type="submit" value="Send"/>
+                </form>
+            </div>
+        </div>
+
+        <br>
+        <br>
+        <div></div>
+    </div>
+</div>
+
+
+
+
+</body>
+</html>

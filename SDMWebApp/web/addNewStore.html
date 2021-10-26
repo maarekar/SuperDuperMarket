@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add a new store</title>
+
+
+
+
+    <!--Default Header=================================================================================-->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <!-- jQuery library -->
+    <script type="text/javascript" src="common/lib/jquery-2.0.3.min.js"></script>
+
+    <link rel="stylesheet" href="common/lib/bootstrap.min.css">
+    <script type="text/javascript" src="common/lib/bootstrap.js"></script>
+
+    <link rel="shortcut icon" href="#">
+
+
+    <script src="pages/addStore/addStore.js"></script>
+    <link href="pages/addStore/addStore.css" rel="stylesheet">
+
+
+</head>
+<body>
+<nav class="navbar  navbar-expand-md navbar-light bg-light " id="navBarHome">
+    <a class="navbar-brand" href="ownerZone.html">SuperDuperMarket</a>
+    <!--   <a href="#" class="btn align-middle btn-primary ml-auto mr-3 order-lg-last" type="button">Upload</a>-->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="ownerZone.html">Zone's details
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="myStores.html">My Stores</a>
+            </li>
+        </ul>
+    </div>
+
+    <!--    <div class="container-fluid-nav text-center">-->
+
+</nav>
+
+<div class="main-body body container-fluid ">
+    <h1 style="text-align:center">Add new store</h1>
+    <br>
+
+    <h3 class="alignLabel"><u>1. Store's information</u></h3>
+    <div class=" centralDiv" style="margin:0 auto;">
+        <br>
+
+        <div class="divOne" style="margin:0 auto;">
+            <div class="divOneOne" style="margin:0 auto;">
+                <form>
+
+                    <div class="form-group">
+                        <div>
+                            <label for="storeName">Store's Name:</label>
+                            <input type="text" id="storeName"  required >
+                        </div>
+
+
+                        <br>
+                        <div>
+                            <label><u>Location:</u></label>
+                            <br>
+
+                            <label for="locationX">X (between 1 and 50):</label>
+                            <input type="number" id="locationX" name="quantity" value="1" min="1" max="50" onkeydown="return false" >
+
+                            <label for="locationY">Y (between 1 and 50):</label>
+                            <input type="number" id="locationY" name="quantity" value="1" min="1" max="50" onkeydown="return false">
+
+                        </div>
+
+                        <br>
+
+                        <div>
+                            <label for="PPK">PPK:</label>
+                            <input type="number" id="PPK"  min="0"  value="0" required onkeydown="return false">
+                        </div>
+
+                    </div>
+
+
+                    <p class="error" style="color:red;"></p>
+                    <br>
+                    <div style="text-align:center">
+                        <input type="button" id="confirmButton" value="Confirm" onclick="confirmInput()">
+                    </div>
+
+
+
+                </form>
+
+
+            </div>
+        </div>
+
+
+    </div>
+
+    <br>
+
+
+</div>
+
+
+<div class="itemsContainer">
+    <br>
+    <br>
+    <br>
+    <h3 class="alignLabel"><u>2. Pick items</u></h3>
+    <div class=" centralDiv" style="margin:0 auto;">
+        <br>
+        <div class="row">
+            <div class="divItems col-md-7" >
+                <div class="flex-container ordersOrFeedbacksContainer main">
+
+                </div>
+            </div>
+
+            <div class="itemsCart col-md-4 " id="itemsTable">
+                <table class="table table-striped" >
+                    <thead>
+                    <tr>
+                        <th scope="col">Item</th>
+                        <th scope="col">Price</th>
+                    </tr>
+                    </thead>
+                    <tbody id="dataItems">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="text-center" style="padding-bottom: 20px;">
+            <input type="button"  id="confirmItems" value="Confirm" onclick="confirmInput2()">
+        </div>
+
+    </div>
+
+    <br>
+    <br>
+    <br>
+
+
+</div>
+
+
+<div class="row container-fluid">
+    <br>
+    <br>
+    <br>
+    <br>
+</div>
+
+<div id="confirmAddStore" class="modal">
+
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-body mx-3 form-group">
+
+                <h4 class="text-center" style="padding-top: 20px;">You add a new store!</h4>
+
+            <div class="text-center" style="padding-bottom: 10px; padding-top: 20px;">
+                <input type="button"  value="Close" onclick="closeAddStoreForm()">
+            </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

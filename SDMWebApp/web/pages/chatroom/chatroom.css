@@ -1,0 +1,18 @@
+.messagesZone{
+    padding-left: 30px;
+    margin-left: 50px;
+}
+
+.bodyCard2{
+    padding: 0 24px;
+}
+
+.titleCard{
+    margin:0
+}
+
+#chatarea{
+    height : 650px;
+    overflow: scroll;
+
+}

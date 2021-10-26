@@ -1,0 +1,67 @@
+.owl-carousel .owl-nav button.owl-prev{
+    color: inherit;
+    border: none;
+    padding: 0 ! important;
+    font: inherit;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width:50px;
+    height: 50px;
+    border-radius: 50%;
+    background: lightblue none;
+}
+
+.owl-carousel .owl-nav button.owl-next{
+    color: inherit;
+    border: none;
+    padding: 0 ! important;
+    font: inherit;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width:50px;
+    height: 50px;
+    border-radius: 50%;
+    background: lightblue none;
+}
+
+.cardItem{
+    margin-top: 10px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+//background-color: DodgerBlue;
+}
+
+.ordersOrFeedbacksContainer{
+    margin: 10px;
+}
+
+.cardOrder{
+    margin: 10px;
+}
+
+.cardItem2{
+    display: inline-block;
+    margin: 10px;
+    padding: 10px;
+    border-color: white;
+}
+
+.main {
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+#showFeedbacksButton{
+    margin-left: 15px;
+    margin-top: 50px;
+
+}
+

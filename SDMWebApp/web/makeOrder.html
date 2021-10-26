@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Make Order</title>
+
+    <!--Default Header=================================================================================-->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <!-- jQuery library -->
+    <script type="text/javascript" src="common/lib/jquery-2.0.3.min.js"></script>
+
+    <link rel="stylesheet" href="common/lib/bootstrap.min.css">
+    <script type="text/javascript" src="common/lib/bootstrap.js"></script>
+
+    <script src="pages/feedback/feedback.js"></script>
+    <script src="pages/makeOrder/makeOrder.js"></script>
+    <link href="pages/makeOrder/makeOrder.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="#">
+
+<!--    iconsss-->
+<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+
+</head>
+<body>
+<!--navbar-->
+
+<nav class="navbar  navbar-expand-md navbar-light bg-light " id="navBarHome">
+    <a class="navbar-brand" href="customerZone.html">SuperDuperMarket</a>
+    <!--   <a href="#" class="btn align-middle btn-primary ml-auto mr-3 order-lg-last" type="button">Upload</a>-->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item ">
+                <a class="nav-link" href="customerZone.html">Zone's details
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="makeOrder.html">Make Order</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="myOrders.html">All my orders</a>
+            </li>
+        </ul>
+    </div>
+    <!--    <div class="container-fluid-nav text-center">-->
+</nav>
+
+
+<div class="main-body body container-fluid ">
+    <h1 style="text-align:center">Make your order</h1>
+    <br>
+
+    <h3 class="alignLabel"><u>1. Basic information</u></h3>
+    <div class=" centralDiv" style="margin:0 auto;">
+        <br>
+
+        <div class="divOne" style="margin:0 auto;">
+            <div class="divOneOne" style="margin:0 auto;">
+                <form>
+                    <label>Location:</label>
+                    <div class="form-group">
+
+                        <!--<input id="chargeCredit" type="number" name="credit" placeholder="Credit"  min="1" max ="50" step="1" class="form-control"  required autofocus>-->
+                        <label for="locationX">X (between 1 and 50):</label>
+                        <input type="number" id="locationX" name="quantity" min="1" max="50" value="1" required onkeydown="return false" required onclick="changeValue()">
+
+                        <label for="locationY">Y (between 1 and 50):</label>
+                        <input type="number" id="locationY" name="quantity" min="1" max="50" value="1" required onkeydown="return false" required onclick="changeValue()">
+                    </div>
+
+                    <br>
+
+                    <div class="form-group md-form md-outline input-with-post-icon datepicker" >
+                        <label>Pick a date:</label>
+                        <input placeholder="Select date" type="date" name="date" id="date" class="form-control" required autofocus>
+                    </div>
+
+                    <br>
+
+<!--                        <div>-->
+                            <input type="checkbox" id="multipleStores" onclick="changeMode(this.id)">
+                            <label for="multipleStores">Multiple Stores (get the best prices for all the items!)</label>
+
+                    <br>
+
+<!--                        </div>-->
+
+<!--                         <div>-->
+                             <input type="checkbox" id="oneStore"  onclick="changeMode(this.id)">
+                             <label for="oneStore">From only one store</label>
+<!--                        </div>-->
+
+                    <br>
+
+
+                        <select class="browser-default custom-select" id="comboboxStores" required  onChange="changeValue()">
+                            <option  selected="">Choose a store</option>
+
+                        </select>
+
+                        <p class="deliveryPrice"></p>
+
+                    <br>
+                    <p class="error" style="color:red;"></p>
+                    <br>
+                    <div style="text-align:center">
+                        <input type="button" id="confirmButton" value="Confirm" onclick="confirmInput()">
+                    </div>
+
+
+
+                </form>
+
+
+            </div>
+            </div>
+
+
+        </div>
+
+        <br>
+
+
+    </div>
+
+
+    <div class="itemsContainer">
+        <br>
+        <br>
+        <br>
+        <h3 class="alignLabel"><u>2. Pick items</u></h3>
+        <div class=" centralDiv" style="margin:0 auto;">
+            <br>
+            <div class="row">
+                <div class="divItems col-md-7" >
+                    <div class="flex-container ordersOrFeedbacksContainer main">
+
+                    </div>
+                </div>
+
+                <div class="itemsCart col-md-4 " id="cartTable">
+                    <table class="table table-striped" >
+                        <thead>
+                        <tr>
+                            <th scope="col">Item</th>
+                            <th scope="col">Quantity</th>
+                        </tr>
+                        </thead>
+                        <tbody id="dataCart">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="text-center" style="padding-bottom: 20px;">
+                <input type="button"  id="confirmItems" value="Confirm" onclick="confirmInput2()">
+            </div>
+
+        </div>
+
+        <br>
+        <br>
+        <br>
+
+
+    </div>
+
+
+    <div class="resumeStoresContainer">
+        <h3 class="alignLabel"><u>Resume of the stores</u></h3>
+        <div class=" centralDiv" style="margin:0 auto;">
+            <br>
+            <div class="row">
+                <div class="divItems col-md-10" style="margin:0 auto;" >
+                    <table class="table table-striped" >
+                        <thead>
+                        <tr>
+                            <th scope="col">Store</th>
+                            <th scope="col">ID</th>
+                            <th scope="col">Location</th>
+                            <th scope="col">Distance</th>
+                            <th scope="col">PPK</th>
+                            <th scope="col">Delivery Price</th>
+                            <th scope="col">Number of Items</th>
+                            <th scope="col">Price of Items</th>
+                        </tr>
+                        </thead>
+                        <tbody id="dynamicStores">
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+            <div class="text-center" style="padding-bottom: 20px; padding-top: 35px;">
+                <input type="button"  class="nextButton" value="Next" onclick="nextButtonToDiscount()">
+            </div>
+
+        </div>
+        <br>
+        <br>
+        <br>
+    </div>
+
+
+
+    <div class="discountsContainer">
+        <h3 class="alignLabel"><u>3. Discounts</u></h3>
+        <div class=" centralDiv" style="margin:0 auto;">
+            <br>
+            <div class="row">
+                <div class="divItems col-md-7" style="margin:0 auto;" id="discounts">
+
+                    <!--<div class="card cardItem2 text-white bg-secondary mb-3 " style="min-width: 20rem; max-width: 20rem;">
+                        <div class="card-header text-center">
+                            The best discount in the world
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text text-center"> <u>Get one of them : </u><br></p>
+                            <div>
+                                <input type="checkbox"  onclick="changeMode(this.id)">
+                                <label for="multipleStores"> Get 2 ketchup for 0</label>
+
+                            </div>
+
+                            <div>
+                                <input type="checkbox"   onclick="changeMode(this.id)">
+                                <label for="oneStore">Get 2 yellow cheese for20</label>
+                            </div>
+                            <br>
+                            <div class="text-center">
+                                <button onclick="addToCart(1, 'banana' , 2.5)">GET</button>
+                            </div>
+
+                        </div>
+                    </div>-->
+
+
+
+
+
+
+                </div>
+
+            </div>
+
+            <br>
+
+            <p class="text-center" id="addDiscountContainer"></p>
+
+            <div class="text-center" style="padding-bottom: 20px; padding-top: 35px;">
+                <input type="button" id="nextButtonToSummary" value="Next" onclick="nextButtonToSummary()">
+            </div>
+
+        </div>
+
+        <br>
+        <br>
+        <br>
+
+    </div>
+
+
+    <div class="lastContainer">
+        <h3 class="alignLabel"><u>4. Summary</u></h3>
+        <div class=" centralDiv" style="margin:0 auto;">
+            <br>
+            <div class="row">
+
+                <div class="card cardItem2 text-white bg-secondary mb-3  summaryContainer" align="center"style="margin:0 auto; min-width: 73rem; max-width: 73rem;">
+                    <br>
+                    <br>
+                    <h4 class="card-text text-center">All the stores: </h4>
+<!--                    begin div of stores-->
+                    <div class="card-body  storesOfSummaryContainer main" style="margin:0 auto; min-width: 70rem; max-width: 70rem;">
+                        <!--<div class="card cardItem2 text-white bg-secondary mb-3 " align="center" style="min-width: 30rem;max-width: 30rem;">
+                            <div class="card-header text-center">
+                                <h5 class="card-title">Rami Levi - 3</h5>
+                            </div>
+                            <br>
+                            <p class="card-text text-center">Items ordered: </p>
+
+                            <div class="card-body main" style="max-width: 28rem;">
+
+                                <div class="card cardItem2 text-white bg-secondary mb-3 text-center" style="min-width: 18rem; max-width: 18rem;">
+                                    <div class="card-header text-center">
+                                        Banana - 3
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="card-text">Purchase Mode: Quantity<br>Quanity: 2
+                                            <br>Price per unity: 8<br>Total price: 16<br>From discount: NO </p>
+                                    </div>
+                                </div>
+
+                                <div class="card cardItem2 text-white bg-secondary mb-3 text-center" style="min-width: 18rem; max-width: 18rem;">
+                                    <div class="card-header text-center">
+                                        Banana - 3
+                                    </div>
+                                    <div class="card-body"  >
+                                        <p class="card-text">Purchase Mode: Quantity<br>Quanity: 2
+                                            <br>Price per unity: 8<br>Total price: 16<br>From discount: NO </p>
+                                    </div>
+                                </div>
+
+                                <div class="card cardItem2 text-white bg-secondary mb-3 text-center" style="min-width: 18rem; max-width: 18rem;">
+                                    <div class="card-header text-center">
+                                        Banana - 3
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="card-text">Purchase Mode: Quantity<br>Quanity: 2
+                                            <br>Price per unity: 8<br>Total price: 16<br>From discount: NO </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <p class="card-text text-center">PPK: 20<br>Distance: 5.4<br>Delivery: 40</p>
+                            <br>
+                        </div>
+
+                        <div class="card cardItem2 text-white bg-secondary mb-3 " align="center" style="min-width: 30rem;max-width: 30rem;">
+                            <div class="card-header text-center">
+                                <h5 class="card-title">Rami Levi - 3</h5>
+                            </div>
+                            <br>
+                            <p class="card-text text-center">Items ordered: </p>
+
+                            <div class="card-body main" style="max-width: 28rem;">
+
+                                <div class="card cardItem2 text-white bg-secondary mb-3 text-center" style="min-width: 18rem; max-width: 18rem;">
+                                    <div class="card-header text-center">
+                                        Banana - 3
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="card-text">Purchase Mode: Quantity<br>Quanity: 2
+                                            <br>Price per unity: 8<br>Total price: 16<br>From discount: NO </p>
+                                    </div>
+                                </div>
+
+                                <div class="card cardItem2 text-white bg-secondary mb-3 text-center" style="min-width: 18rem; max-width: 18rem;">
+                                    <div class="card-header text-center">
+                                        Banana - 3
+                                    </div>
+                                    <div class="card-body"  >
+                                        <p class="card-text">Purchase Mode: Quantity<br>Quanity: 2
+                                            <br>Price per unity: 8<br>Total price: 16<br>From discount: NO </p>
+                                    </div>
+                                </div>
+
+                                <div class="card cardItem2 text-white bg-secondary mb-3 text-center" style="min-width: 18rem; max-width: 18rem;">
+                                    <div class="card-header text-center">
+                                        Banana - 3
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="card-text">Purchase Mode: Quantity<br>Quanity: 2
+                                            <br>Price per unity: 8<br>Total price: 16<br>From discount: NO </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <p class="card-text text-center">PPK: 20<br>Distance: 5.4<br>Delivery: 40</p>
+                            <br>
+                        </div>
+
+                        <div class="card cardItem2 text-white bg-secondary mb-3 " align="center" style="min-width: 30rem;max-width: 30rem;">
+                            <div class="card-header text-center">
+                                <h5 class="card-title">Rami Levi - 3</h5>
+                            </div>
+                            <br>
+                            <p class="card-text text-center">Items ordered: </p>
+
+                            <div class="card-body main" style="max-width: 28rem;">
+
+                                <div class="card cardItem2 text-white bg-secondary mb-3 text-center" style="min-width: 18rem; max-width: 18rem;">
+                                    <div class="card-header text-center">
+                                        Banana - 3
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="card-text">Purchase Mode: Quantity<br>Quanity: 2
+                                            <br>Price per unity: 8<br>Total price: 16<br>From discount: NO </p>
+                                    </div>
+                                </div>
+
+                                <div class="card cardItem2 text-white bg-secondary mb-3 text-center" style="min-width: 18rem; max-width: 18rem;">
+                                    <div class="card-header text-center">
+                                        Banana - 3
+                                    </div>
+                                    <div class="card-body"  >
+                                        <p class="card-text">Purchase Mode: Quantity<br>Quanity: 2
+                                            <br>Price per unity: 8<br>Total price: 16<br>From discount: NO </p>
+                                    </div>
+                                </div>
+
+                                <div class="card cardItem2 text-white bg-secondary mb-3 text-center" style="min-width: 18rem; max-width: 18rem;">
+                                    <div class="card-header text-center">
+                                        Banana - 3
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="card-text">Purchase Mode: Quantity<br>Quanity: 2
+                                            <br>Price per unity: 8<br>Total price: 16<br>From discount: NO </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <p class="card-text text-center">PPK: 20<br>Distance: 5.4<br>Delivery: 40</p>
+                            <br>
+                        </div>-->
+                    </div>
+<!--                        end div of stores-->
+
+
+
+                    <!--<br>
+                    <br>
+
+
+                    <p class="card-text text-center">Total Price of Items: 150$<br>Total Price of Deliveries: 150$<br>Total Price of the Order: 300$</p>
+                    <br>
+                    <br>-->
+
+
+
+                </div>
+
+
+
+
+
+            </div>
+
+
+            <div class="text-center" style="padding-bottom: 20px; padding-top: 35px;">
+                <input type="button"  class="button" value="Cancel" onclick="cancelOrder()">
+                <input type="button" class="button" value="Order" onclick="makeOrder()">
+            </div>
+    </div>
+
+
+
+
+
+
+</div>
+
+    <div class="row container-fluid">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
+
+
+
+<!--                 FEEDBACKS FORM-->
+<div id="feedbacks" class="modal">
+<!--    <div class="modal fade"   tabindex="-1" role="dialog" aria-labelledby="myModalLabel"-->
+<!--         aria-hidden="true">-->
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold">You can leave feedbacks to the stores!</h4>
+                    <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>-->
+                </div>
+
+
+
+
+<!--                <form class="form-add-feedback"  enctype="multipart/form-data" method="POST" action="chargeCredit"><br>-->
+                    <div class="modal-body mx-3 form-group">
+
+                        <select class="browser-default custom-select" id="storesForFeedbacks" required >
+
+
+                        </select>
+
+                        <br>
+
+                        <div class="md-form mb-5" style="display: inline-block;">
+                            <br>
+                            <label>Rating</label>
+                            <br>
+                            <label class="container inline">1
+                                <input type="radio"  class="gradeRadioButton" id="firstRadioButton" name="radio" onchange="chooseRate(1)" checked>
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label class="container inline">2
+                                <input type="radio"  class="gradeRadioButton" name="radio" onchange="chooseRate(2)">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label class="container inline">3
+                                <input type="radio"  class="gradeRadioButton" name="radio" onchange="chooseRate(3)">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label class="container inline">4
+                                <input type="radio"  class="gradeRadioButton" name="radio" onchange="chooseRate(4)">
+                                <span class="checkmark"></span>
+                            </label>
+
+                            <label class="container inline">5
+                                <input type="radio"  class="gradeRadioButton" name="radio" onchange="chooseRate(5)">
+                                <span class="checkmark"></span>
+                            </label>
+
+
+                        </div>
+                        <div class="md-form mb-5">
+                            <label for="comment">Comment</label>
+                            <textarea class="form-control" id="comment"  rows="4" required></textarea>
+
+                    </div>
+                        <input type="button" value="Add" id="addFeedbackButton" onclick="addFeedback()">
+                        <br>
+                        <p class="succesFeedback text-center" ></p>
+                    </div>
+
+<!--                </form>-->
+
+                <div class="text-center" style="padding-bottom: 20px; padding-top: 35px;">
+                    <input type="button"  value="Close" onclick="closeFeedbacksForm()">
+                </div>
+
+            </div>
+
+<!--        </div>-->
+    </div>
+
+</div>
+
+
+
+</body>
+</html>

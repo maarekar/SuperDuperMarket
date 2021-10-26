@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Stores</title>
+
+
+    <!--Default Header=================================================================================-->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <!-- jQuery library -->
+    <script type="text/javascript" src="common/lib/jquery-2.0.3.min.js"></script>
+
+    <script type="text/javascript" src="common/lib/bootstrap.js"></script>
+    <link rel="stylesheet" href="common/lib/bootstrap.min.css">
+    <link rel="shortcut icon" href="#">
+
+
+</head>
+<body>
+<nav class="navbar  navbar-expand-md navbar-light bg-light " id="navBarHome">
+    <a class="navbar-brand" href="ownerZone.html">SuperDuperMarket</a>
+    <!--   <a href="#" class="btn align-middle btn-primary ml-auto mr-3 order-lg-last" type="button">Upload</a>-->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="ownerZone.html">Zone's details
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="myStores.html">My Stores</a>
+            </li>
+        </ul>
+    </div>
+
+    <!--    <div class="container-fluid-nav text-center">-->
+
+    <a href="addNewStore.html" class="btn align-middle   ml-auto mr-3 order-lg-last">Add a new store</a>
+</nav>
+<div class="row container-fluid">
+    <div class="col-md-1">
+        <button id="showFeedbacksButton" onclick="showFeedback()"> Show My Feedbacks</button>
+    </div>
+
+    <div class="col-md-11" >
+        <div class="main-body body container-fluid ">
+            <div class="row">
+                <div class="col-md-12 " style="margin:0 auto;">
+
+                    <div class="row justify-content-center">
+                        <h3>All my stores</h3>
+                        <br>
+                        <br>
+                        <br>
+                    </div>
+
+                    <div class="noStores">
+                        <h3 style="color:red;">You don't have stores in this zone.</h3>
+                    </div>
+
+                    <div class="parent-box owl-carousel stores" id="myStores">
+                        <!-- <div class="card cardItem text-white bg-secondary mb-3 text-center" style="max-width: 18rem;">
+                             <div class="card-header ">Rami Levi - 3</div>
+                             <div class="card-body">
+                                 <button id="stamButton"> Show Orders</button>
+                             </div>
+                         </div>-->
+
+
+                    </div>
+
+                    <div class="row showOrdersOrFeedbacks">
+
+                        <div class="col-md-12 " style="margin:0 auto;">
+
+                            <br>
+
+                            <div align="center" id="forTitle"></div>
+
+                            <div class="flex-container ordersOrFeedbacksContainer main">
+
+                         <!--        <div class="card cardOrder text-white bg-secondary mb-3 " style="max-width: 40rem;">
+                                     <div class="card-header text-center">
+                                         <h5 class="card-title">Order #1</h5>
+                                     </div>
+                                     <br>
+                                     <p class="card-text text-center">Date: 31/10/2020<br>Delivery's address: [5,5]</p>
+
+
+                                     <div class="card-body main" style=" min-width: 37rem; max-width: 37rem;">
+
+                                         <div class="card cardItem2 text-white bg-secondary mb-3 text-center" style="min-width: 18rem; max-width: 18rem;">
+                                             <div class="card-header text-center">
+                                                 Banana - 3
+                                             </div>
+                                             <div class="card-body">
+                                                 <p class="card-text">Purchase Mode: Quantity<br>Quanity: 2
+                                                     <br>Price per unity: 8<br>Total price: 16<br>From discount: NO </p>
+                                             </div>
+                                         </div>
+
+                                         <div class="card cardItem2 text-white bg-secondary mb-3 text-center" style="min-width: 18rem; max-width: 18rem;">
+                                             <div class="card-header text-center">
+                                                 Banana - 3
+                                             </div>
+                                             <div class="card-body">
+                                                 <p class="card-text">Purchase Mode: Quantity<br>From: Rami Levi - 3<br>Quanity: 2
+                                                     <br>Price per unity: 8<br>Total price: 16<br>From discount: NO </p>
+                                             </div>
+                                         </div>
+
+                                         <div class="card cardItem2 text-white bg-secondary mb-3 text-center" style="min-width: 18rem; max-width: 18rem;">
+                                             <div class="card-header text-center">
+                                                 Banana - 3
+                                             </div>
+                                             <div class="card-body">
+                                                 <p class="card-text">Purchase Mode: Quantity<br>From: Rami Levi - 3<br>Quanity: 2
+                                                     <br>Price per unity: 8<br>Total price: 16<br>From discount: NO </p>
+                                             </div>
+                                         </div>
+                                     </div>
+                                     <br>
+                                     <p class="card-text text-center">Number of items: 4<br>Items' price: 150<br>Delivery price: 30<br> Total price: 180</p>
+                                     <br>
+                                 </div>
+
+                                <div class="card cardItem2 text-white bg-secondary mb-3 " >
+                                    <div class="card-header text-center">
+                                        Arnaud
+                                    </div>
+                                    <div class="card-body" >
+                                                <u>Rating:</u> 4<br><br>
+                                                Amazing experience thank you very much !
+                                                See you soon !
+
+                                    </div>
+                                </div>-->
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<script src="common/lib/owl.carousel.js"></script>
+<script src="pages/myStores/myStores.js"></script>
+
+<!--    <script src="pages/zone/zone.js"></script>-->
+<link href="common/lib/owl.carousel.css" rel="stylesheet">
+<link href="pages/myStores/myStores.css" rel="stylesheet">
+
+</body>
+</html>

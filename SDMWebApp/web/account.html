@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Account</title>
+
+
+
+
+    <!--Default Header=================================================================================-->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <!-- jQuery library -->
+    <script type="text/javascript" src="common/lib/jquery-2.0.3.min.js"></script>
+
+    <link rel="stylesheet" href="common/lib/bootstrap.min.css">
+    <script type="text/javascript" src="common/lib/bootstrap.js"></script>
+
+    <link rel="shortcut icon" href="#">
+
+    <script src="pages/account/account.js"></script>
+    <link href="pages/home/home.css" rel="stylesheet">
+    <link href="pages/account/account.css" rel="stylesheet">
+
+
+</head>
+<body>
+
+<nav class="navbar  navbar-expand-md navbar-light bg-light"  id="navBarHome">
+    <a class="navbar-brand" href="home.html">SuperDuperMarket</a>
+    <!--   <a href="#" class="btn align-middle btn-primary ml-auto mr-3 order-lg-last" type="button">Upload</a>-->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item ">
+                <a class="nav-link" href="home.html">Home
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="account.html">Account</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="chat.html">Chat</a>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+
+
+
+
+<!--Main body-->
+<div class="row main-body body container-fluid">
+    <br>
+    <div class="col-md-5 row-md-5 greetings">
+        <div class="jumbotron">
+            <h1>Hello, <span class="username"></span> !</h1>
+            <p>Welcome to your account.<br>Here you can check your credit balance and all your transactions.</p>
+        </div>
+
+        <h4>Your current balance is <span class="balance"></span> $</h4>
+
+<!--        <a href="" class="" id="chargeCredit" data-toggle="modal" data-target="#chargeCreditForm">Charge Credit</a>-->
+    </div>
+
+    <div class="col-md-7 tableTransactions">
+        <div class="row justify-content-center">
+            <h1>Transactions</h1>
+        </div>
+
+        <br>
+
+        <div class="row justify-content-center ">
+            <table class="table table-striped" id="table-transactions">
+                <thead>
+                <tr>
+                    <th scope="col">Transaction's Type</th>
+                    <th scope="col">Date           </th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Balance before the transaction</th>
+                    <th scope="col">Balance after the transaction</th>
+                </tr>
+                </thead>
+                <tbody id="dataTransactions">
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+<div class="modal fade"  id="chargeCreditForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Charge Credit</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form class="form-charge"  enctype="multipart/form-data" method="POST" action="chargeCredit"><br>
+                <div class="modal-body mx-3">
+                    <div class="md-form mb-5">
+                        <label>Enter a credit:</label>
+                        <input id="chargeCredit" type="number" name="credit" placeholder="Credit"  min="0" step=".01" class="form-control"  required autofocus>
+                    </div>
+
+                    <div id="date-picker-example" class="md-form md-outline input-with-post-icon datepicker">
+                        <label>Pick a date:</label>
+                        <input placeholder="Select date" type="date" name="date" id="date" class="form-control" required autofocus>
+                    </div>
+
+                </div>
+                <br>
+                <!--                <label for="area" class="sr-only">Username</label>-->
+                <p class="error"></p>
+                <!--                <small id="uploadMessage">This is some smaller text.</small>-->
+
+                <br>
+                <button class="btn btn-lg btn-block" type="submit">Charge</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

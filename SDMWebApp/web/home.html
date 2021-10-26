@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+
+
+
+    <!--Default Header=================================================================================-->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!--===============================================================================================-->
+
+    <!-- jQuery library -->
+    <script type="text/javascript" src="common/lib/jquery-2.0.3.min.js"></script>
+
+    <link rel="stylesheet" href="common/lib/bootstrap.min.css">
+    <script type="text/javascript" src="common/lib/bootstrap.js"></script>
+
+    <link rel="shortcut icon" href="#">
+
+
+    <link href="pages/home/home.css" rel="stylesheet">
+    <script src="pages/home/home.js"></script>
+    <script src="pages/upload/upload.js"></script>
+    <script src="pages/notifier/notifier.js"></script>
+
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md navbar-light bg-light" id="navBarHome">
+    <a class="navbar-brand" href="home.html">SuperDuperMarket</a>
+<!--   <a href="#" class="btn align-middle btn-primary ml-auto mr-3 order-lg-last" type="button">Upload</a>-->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="home.html">Home
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="account.html">Account</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="chat.html">Chat</a>
+            </li>
+        </ul>
+    </div>
+<!--    <div class="container-fluid-nav text-center">-->
+</nav>
+
+<div class="row container-fluid">
+    <div class="col-md-11" id="alertArea" style="margin:0 auto; margin-top: 10px; margin-bottom: 10px;">
+
+        <!--<div class="alert alert-info col-md-11" style="margin:0 auto;">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Info!</strong> Indicates a neutral informative change or action.
+        </div>-->
+
+
+    </div>
+
+</div>
+
+<div class="row container-fluid">
+    <!--Main body-->
+    <div class="row main-body body container-fluid">
+        <br>
+        <div class="col-md-3 users">
+            <div class="row justify-content-center">
+                <h1>Users</h1>
+            </div>
+
+            <br>
+            <div id="listOfUsers">
+                <!--<div class="card shadow p-3 mb-3 bg-white rounded" >
+                    <div class="card-body">
+                        <h5 class="card-title username">Stam</h5>
+                        <h6 class="card-subtitle text-muted">Owner</h6>
+                    </div>
+                </div>
+                <div class="card shadow p-3 mb-3 bg-white rounded">
+                    <div class="card-body">
+                        <h5 class="card-title username">Stam2</h5>
+                        <h6 class="card-subtitle text-muted">Owner</h6>
+                    </div>
+                </div>-->
+            </div>
+            <ul id="userslist">
+            </ul>
+        </div>
+        <div class="col-md-8 tableZone">
+            <div class="row justify-content-center">
+                <h1>Zones</h1>
+            </div>
+
+            <br>
+
+            <div class="row justify-content-center ">
+                <table class="table table-striped" id="table-zones">
+                    <thead>
+                    <tr>
+                        <th scope="col">Owner's Name</th>
+                        <th scope="col">Zone</th>
+                        <th scope="col">Numbers of Items</th>
+                        <th scope="col">Numbers of Stores</th>
+                        <th scope="col">Numbers of Orders</th>
+                        <th scope="col">Average Price of Items of all the Orders</th>
+                        <th scope="col"></th>
+                    </tr>
+                    </thead>
+                    <tbody id="dataZones">
+                    <!--<tr>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>5</td>
+                        <td>2</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td><button class="btnSelect">Show</button></td>
+    &lt;!&ndash;                    <td><form id="showZone" method="POST" >&ndash;&gt;
+    &lt;!&ndash;&lt;!&ndash;                        <input type="text" id="userstring" name="userstring"/>&ndash;&gt;&ndash;&gt;
+    &lt;!&ndash;                        <input type="submit" value="Send"/>&ndash;&gt;
+    &lt;!&ndash;                    </form></td>&ndash;&gt;
+                    </tr>
+                    <tr>
+
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>7</td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td><button class="btnSelect">Show</button></td>
+                    </tr>-->
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Upload a Zone</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form class="form-upload" enctype="multipart/form-data" method="POST" action="upload"><br>
+                <div class="form-group">
+                    <input type="file" class="form-control-file" id="zone-file" name="zone-file">
+                </div>
+                <br>
+<!--                <label for="area" class="sr-only">Username</label>-->
+                <p class="error"></p>
+<!--                <small id="uploadMessage">This is some smaller text.</small>-->
+
+                <br>
+                <button class="btn btn-lg btn-block" id="uploadButton" type="submit">Upload</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<!--charge credit form -->
+
+<div class="modal fade"  id="chargeCreditForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Charge Credit</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form class="form-charge"  enctype="multipart/form-data" method="POST" action="chargeCredit"><br>
+                <div class="modal-body mx-3">
+                    <div class="md-form mb-5">
+                        <label>Enter a credit:</label>
+                        <input id="chargeCredit" type="number" name="credit" placeholder="Credit"  min="0" step=".01" class="form-control"  required autofocus>
+                    </div>
+
+                    <div id="date-picker-example" class="md-form md-outline input-with-post-icon datepicker">
+                        <label>Pick a date:</label>
+                        <input placeholder="Select date" type="date" name="date" id="date" class="form-control" required autofocus>
+                    </div>
+
+                </div>
+
+
+
+                <br>
+                <button class="btn btn-lg btn-block" type="submit">Charge</button>
+                <br>
+                <p class="error"></p>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+</body>
+</html>
